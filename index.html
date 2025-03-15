@@ -58,6 +58,11 @@
                 margin-left: 40px;
             }
 
+            header h1 {
+                font-size: 24px;
+                margin-left: 40px;
+            }
+
             /* 适配移动端 */
             @media (max-width: 768px) {
                 .navbar {
@@ -68,7 +73,7 @@
                     padding: 10px 0; /* 增加内边距避免过于紧凑 */
                 }
                 .navbar a {
-                    font-size: 16px; /* 调整字体大小 */
+                    font-size: 12px; /* 调整字体大小 */
                     padding: 10px; /* 调整padding增加点击区域 */
                     width: 100%; /* 保证每个链接占满一行 */
                     text-align: center; /* 使链接居中 */
@@ -80,15 +85,6 @@
                 }
             }
 
-            header h1 {
-                font-size: 24px;
-                margin-left: 40px;
-            }
-            header li {
-                font-size: 16px;  /* 可以调整字体大小 */
-                margin-left: 20px;  /* 给 p 加点左边距，使其与 h1 更加紧密 */
-            }
-            
             /* 🔹 让背景视频全屏 */
             .bg-video {
                 top: 120px;
@@ -189,6 +185,7 @@
             @media (max-width: 768px) {
                 /* header h1 居中 */
                 header h1 {
+                    font-size: 18px;
                     text-align: center; /* 设置标题居中 */
                     margin: 0; /* 去除默认的外边距 */
                     justify-content: center; /* Center horizontally */
@@ -201,6 +198,12 @@
                     margin-left: 10px; /* 去除左侧间距 */
                     margin-right: 10px; /* 去除右侧间距 */
                     margin: 10px 0; /* 增加上下间距 */
+                }
+                .intro h2, .Specialties h2, .contact h2 {
+                    font-size: 24px;
+                }
+                .intro li, .contact p, .contact li {
+                    font-size: 10px;
                 }
             }
 
@@ -256,6 +259,12 @@
                 .grid-container {
                     grid-template-columns: 1fr; /* Stacks the items in one column */
                     padding: 40px;
+                }
+                .grid-item h3 {
+                    font-size: 18px;
+                }
+                .grid-item p {
+                    font-size: 8px;
                 }
             }
 
