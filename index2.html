@@ -1,0 +1,370 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Z' Dance Studio</title>
+    </head>
+
+        <style>
+            body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* 🔹 让导航栏固定在页面顶部 */
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 120px;
+                display: flex;
+                background-color: #000;
+                color: #fff;
+                align-items: center; /* 使logo和文字在垂直方向居中 */
+                padding: 0; /* 去除内边距 */
+                z-index: 1000;
+            }
+
+            .navbar a {
+                color: white; /* 默认颜色 */
+                text-decoration: none; /* 去掉下划线 */
+                font-size: 18px;
+                padding: 10px;
+                display: inline-block;
+                padding-left: 30px;
+            }
+
+            /* 当链接被点击时变为黄色 */
+            .navbar a:active,
+            .navbar a:focus {
+                color: yellow; /* 点击时文字颜色变为黄色 */
+            }
+
+            /* 添加悬停效果 */
+            .navbar a:hover {
+                color: yellow; /* 悬停时文字颜色变为黄色 */
+            }
+
+            /* 🔹 放大 Logo */
+            .logo img {
+                width: 120px; /* 调整 Logo 大小 */
+                height: auto;
+                object-fit: contain;
+                margin-top: 0;
+                margin-left: 40px;
+            }
+            header h1 {
+                font-size: 24px;
+                margin-left: 40px;
+            }
+            header li {
+                font-size: 16px;  /* 可以调整字体大小 */
+                margin-left: 20px;  /* 给 p 加点左边距，使其与 h1 更加紧密 */
+            }
+            
+            /* 🔹 让背景视频全屏 */
+            .bg-video {
+                top: 120px;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                object-fit: cover; /* 保持比例铺满屏幕 */
+                z-index: -1;
+            }
+
+            .intro {
+                margin-bottom: 0;
+            }
+
+            .contact {
+                margin-bottom: 200px;
+                height: 250px;
+            }
+
+            .intro, .contact {
+                margin: 0;
+                padding: 0;
+                background-color: #fff;
+                color: #333;
+                width: 100%; /* Full width */
+            }
+
+            .intro{
+                padding-top: 120px;
+                padding-bottom: 120px;
+            }
+
+            /* 设置图片容器的布局为 Flexbox */
+            .image-container {
+                display: flex; /* 使用 Flexbox 布局 */
+                justify-content: space-between; /* 图片容器在页面中居中 */
+                max-width: 30%;
+                height: 200px;
+                margin-left: 90px;
+                gap: 30px; /* 图片之间的间距 */
+                margin-top: 20px; /* 设置图片容器与标题之间的间距 */
+            }
+            
+            .Specialties{
+                background-color: #222;
+                color: white; /* 设置文字为白色 */
+                padding: 50px;
+                padding-top: 120px;
+            }
+
+            /*所有的H2标题文字页面居中*/
+            .intro h2, .Specialties h2, .contact h2 { 
+                font-size: 30px;
+                text-align: center; /* 水平居中 */
+                width: 100%; /* 确保它占满整个容器 */
+                margin-top: 15px;
+            }
+
+            .Specialties h2{
+                padding-top: 0;
+            }
+
+            .intro li {
+                font-size: 16px;
+                margin-left: 160px;
+                line-height: 1.7; /* 增加行间距为 1.8 倍字体大小 */
+            }
+            .contact p {
+                font-size: 16px;
+                margin-left: 130px;
+                margin-bottom: 10px; /* Ensure space between p and li */
+                line-height: 1.0; /* Adjust line height to reduce space between text */
+            }
+            .contact li {
+                font-size: 16px;
+                margin-left: 100px;
+                margin-top: 0;
+                margin-bottom: 10px; /* Ensure spacing between list items */
+            }
+
+             /* 使每一项有一致的布局 */
+             .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* 2 columns */
+                grid-template-rows:repeat(2, 1fr);    /* 2 rows */
+                justify-content: space-between;
+                gap: 20px; /* Space between the grid items */
+                padding: 80px 80px;
+                padding-top: 0;  /* 调整顶部填充，让内容更靠近标题 */
+                padding-bottom: 20px; /* 保持底部的间距 */
+            }
+
+            /* 每个课程项 */
+            .grid-item {
+                width: 100%; /* 每个课程项占48%的宽度 */
+                text-align: center;
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Style the images inside the grid items */
+            .grid-item img {
+                width: 100%;
+                height: 200px;
+                border-radius: 8px;
+                margin-top: 10px;
+                padding-left: 120px;
+            }
+
+            /* Adjust the text styling */
+            .grid-item h3 {
+                font-size: 24px;
+                margin: 10px 0;
+                padding-top: 0   /* 调整顶部填充，让内容更靠近标题 */
+            }
+
+            .grid-item p {
+                font-size: 14px;
+                color: #666;
+                line-height: 1.2; /* 增加行间距为 1.2 倍字体大小 */
+                margin-top: 10px;
+                width: 70%; /* 设置为 70% 的宽度，减少文字的宽度 */
+                margin: 0 auto; /* 使 p 在 grid-item 中居中 */
+                text-align: justify; /* 设置为两端对齐 */
+            }
+
+            /* Responsive layout for smaller screens */
+            @media (max-width: 768px) {
+                .grid-container {
+                    grid-template-columns: 1fr; /* Stacks the items in one column */
+                }
+            }
+
+            /* 设置视频容器的布局为 Flexbox */
+            .video-container {
+                display: flex;
+                flex-wrap: wrap; /* 允许子元素换行 */
+                gap: 20px; /* 视频之间的间距 */
+                justify-content: space-between; /* 水平排列并均匀分布视频 */
+                padding: 0 40px;
+            }
+
+            /* 每个视频的宽度设置为容器的 30%，保证每行最多显示 3 个视频 */
+            video {
+                width: 30%; /* 每个视频占父容器宽度的30% */
+                height: auto; /* 保持视频原始比例 */
+                object-fit: cover; /* Ensures videos maintain their aspect ratio */
+                max-width: 100%; /* Prevents video from overflowing */
+            }
+            @media (max-width: 768px) {
+                video {
+                    width: 100%; /* Ensure each video takes up full width on small screens */
+                }
+                .video-container {
+                    gap: 10px; /* Reduce gap between videos on smaller screens */
+                }
+            }
+
+            .contact img {
+                max-width: 45%;
+                height: 300px;
+                margin-left: 100px;
+            }
+
+            footer {
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+                padding: 0;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                height: 50px; /* Set a fixed height */
+                display: flex;
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+            }
+        </style>
+
+
+    <body>
+    <header class="navbar">
+        <a href="index2.html" class="logo">
+            <img src="images/Zhao-LOGO-2.png" alt="Logo">
+        </a>
+        <h1>[ Z' Dance Studio ]</h1>
+        <nav>
+            <a href="#intro">Instructor Introduction</a>
+            <a href="#dance-classes">Dance Classes</a>
+            <a href="#contact">Contact Us</a>              
+        </nav>
+    </header>
+
+        <!-- 视频背景 -->
+    <video autoplay loop muted class="bg-video">
+        <source src="videos/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <section class="intro" id="intro">
+        <h2>Instructor Introduction</h2>
+        <ul>
+            <li>Good at dancing in HIPHOP, Girls Hiphop, Freestyle, Popping, Locking, Jazz, etc.</li>
+            <li>Chinese Dancers Association Street Dance Grade Examination Overseas Points (Level 1, Level 2, Level 3).</li>
+            <li>2023 - Present  Establish Classic Dance Studio, Calgary, AB ,Canada.</li> 
+            <li>2020 - 2022 Establish Hip-hop Dance Studio in Chiang Mai, Thailand.</li>
+            <li>2010 New Look Dance Studio Rookie Competition Judge.</li>
+            <li>In 2009, represented New Look Dance Studio in Dragon TV's New Year's Eve event and became Wilber Pan's backing dancer.</li>
+            <li>In 2009, represented New Look Dance Studio in Dragon TV's New Year's Eve event and became Elva Hsiao's backing dancer.</li>
+            <li>2009 Fresh Daily C Dance National Competition Group Award Shanghai Division First Place.</li>
+        <ul>
+
+        <div class="image-container">
+            <img src="images/获奖1.jpg" alt="Award Photos">
+            <img src="images/获奖2.jpg" alt="Award Photos">
+            <img src="images/获奖3.jpg" alt="Award Photos">
+            <img src="images/获奖4.JPG" alt="Award Photos">
+        </div>
+    </section>
+
+    <section class="Specialties" id="dance-classes">
+        <h2>Dance Classes</h2>
+        <div class="grid-container">
+            <!-- Hip Hop -->
+            <div class="grid-item">
+                <h3>HIPHOP</h3>
+                <p>Hip hop dance is more than just a dance style; it is a cultural movement that promotes self-expression, creativity, and unity. Whether in a dance studio, on the streets, or in international competitions, hip hop continues to evolve and inspire dancers worldwide.</p>
+                <div class="image-container">
+                    <img src="images/Hiphop.JPG" alt="Hiphop">
+                </div>
+            </div>
+            <!-- Freestyle -->
+            <div class="grid-item">
+                <h3>FREESTYLE</h3>
+                <p>Freestyle dance is a powerful form of artistic expression that encourages individuality and creativity. It allows dancers to move freely, interpret music in their own way, and develop a unique dance identity. Whether on stage, in a club, or in a competition, freestyle dance continues to inspire and evolve across different cultures.</p>
+                <div class="image-container">
+                    <img src="images/Freestyle.JPG" alt="Freestyle">
+                </div>
+            </div>
+            <!-- Jazz -->        
+            <div class="grid-item">
+                <h3>JAZZ</h3>
+                <p>Jazz dance is a performance dance technique and style that emerged in the United States in the early 20th century. It evolved from African American vernacular dances and has since branched into various styles, including vernacular jazz and theatrical jazz.</p>
+                <div class="image-container">
+                    <img src="images/Jazz.JPG" alt="Jazz">
+                </div>
+            </div>
+            <!-- Kpop -->        
+            <div class="grid-item">
+                <h3>K-POP</h3>
+                <p>K-pop dance is more than just choreography; it is a fusion of artistry, expression, and performance that captivates audiences worldwide. With its high-energy routines and diverse influences, K-pop dance continues to evolve and set new trends in the dance industry.</p>
+                <div class="image-container">
+                    <img src="images/K-pop.JPG" alt="KPop">
+                </div>
+            </div>
+        </div>
+
+        <h2>Dance Videos</h2>
+        <div class="video-container">
+            <video controls>
+                <source src="videos/1740852668.MP4" type="video/mp4">
+            Your browser does not support video playback.
+            </video>
+            <video controls>
+                <source src="videos/1740853276.MP4" type="video/mp4">
+            Your browser does not support video playback.
+            </video>
+            <video controls>
+                <source src="videos/1740853833.MP4" type="video/mp4">
+            Your browser does not support video playback.
+            </video>
+            <video controls>
+                <source src="videos/1740855169.MP4" type="video/mp4">
+            Your browser does not support video playback.
+            </video>
+            <video controls>
+                <source src="videos/1740855475.MP4" type="video/mp4">
+            Your browser does not support video playback.
+            </video>
+            <video controls>
+                <source src="videos/1740859078.MP4" type="video/mp4">
+            Your browser does not support video playback.
+            </video>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to enroll in my dance classes, please contact me through the following methods:</p>
+        <ul>
+            <li>E-mail: [ zlxcyzyc1314@gmail.com ]</li>
+            <li>Phone: [ +1 (825) 986 3875 ]</li>
+            <li>Social Media: [ WECHAT: 13512168532 ]</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; [ 2025 ] [ Z' Classic Dance Studio ]. All rights reserved.</p>
+    </footer>
+
+    </body>
+    </html>
