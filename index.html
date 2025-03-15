@@ -11,6 +11,7 @@
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 margin: 0;
                 padding: 0;
+                box-sizing: border-box;
             }
 
             /* 🔹 让导航栏固定在页面顶部 */
@@ -24,7 +25,8 @@
                 background-color: #000;
                 color: #fff;
                 align-items: center; /* 使logo和文字在垂直方向居中 */
-                padding: 0; /* 去除内边距 */
+                justify-content: flex-start; /* 保证桌面端不使用 space-between */
+                padding: 0 20px; /* 去除内边距 */
                 z-index: 1000;
             }
 
@@ -34,7 +36,6 @@
                 font-size: 18px;
                 padding: 10px;
                 display: inline-block;
-                padding-left: 30px;
             }
 
             /* 当链接被点击时变为黄色 */
@@ -46,6 +47,19 @@
             /* 添加悬停效果 */
             .navbar a:hover {
                 color: yellow; /* 悬停时文字颜色变为黄色 */
+            }
+
+            /* 适配移动端 */
+            @media (max-width: 768px) {
+                .navbar {
+                    flex-direction: column; /* 移动端导航栏垂直显示 */
+                    align-items: center;
+                    height: auto; /* 改为自适应高度 */
+                }
+                .navbar a {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
             }
 
             /* 🔹 放大 Logo */
@@ -93,8 +107,8 @@
             }
 
             .intro{
-                padding-top: 120px;
-                padding-bottom: 120px;
+                padding-top: 100px;
+                padding-bottom: 100px;
             }
 
             /* 设置图片容器的布局为 Flexbox */
@@ -106,6 +120,18 @@
                 margin-left: 90px;
                 gap: 30px; /* 图片之间的间距 */
                 margin-top: 20px; /* 设置图片容器与标题之间的间距 */
+            }
+
+            /* 适配小屏幕的图片布局 */
+            @media (max-width: 768px) {
+                .image-container {
+                    justify-content: space-around; /* 在小屏幕上，图片间隔更加紧凑 */
+                    gap: 10px;
+                }
+
+                .image-container img {
+                    max-width: 100%;  /* 在小屏幕上允许图片占满容器宽度 */
+                }
             }
             
             .Specialties{
@@ -196,6 +222,7 @@
             @media (max-width: 768px) {
                 .grid-container {
                     grid-template-columns: 1fr; /* Stacks the items in one column */
+                    padding: 40px;
                 }
             }
 
