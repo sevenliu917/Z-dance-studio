@@ -49,21 +49,6 @@
                 color: yellow; /* 悬停时文字颜色变为黄色 */
             }
 
-            /* 适配移动端 */
-            @media (max-width: 768px) {
-                .navbar {
-                    flex-direction: column; /* 移动端导航栏垂直显示 */
-                    align-items: center;
-                    justify-content: center; /* Center horizontally */
-                    height: auto; /* 改为自适应高度 */
-                }
-                .navbar a {
-                    flex-direction: column; /* 移动端导航栏垂直显示 */
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-            }
-
             /* 🔹 放大 Logo */
             .logo img {
                 width: 120px; /* 调整 Logo 大小 */
@@ -73,13 +58,25 @@
                 margin-left: 40px;
             }
 
-            /* logo适配移动端 */
+            /* 适配移动端 */
             @media (max-width: 768px) {
-                .logo img{
-                    width: 60px; /* 调整 Logo 大小 */
-                    height: auto;
+                .navbar {
+                    flex-direction: column; /* 移动端导航栏垂直显示 */
+                    align-items: center;
                     justify-content: center; /* Center horizontally */
-                    align-items: center; /* Center vertically */
+                    height: auto; /* 改为自适应高度 */
+                    padding: 10px 0; /* 增加内边距避免过于紧凑 */
+                }
+                .navbar a {
+                    font-size: 16px; /* 调整字体大小 */
+                    padding: 10px; /* 调整padding增加点击区域 */
+                    width: 100%; /* 保证每个链接占满一行 */
+                    text-align: center; /* 使链接居中 */
+                }
+                .logo img {
+                    width: 60px; /* 设置Logo宽度 */
+                    height: auto; /* 保持比例 */
+                    margin-bottom: 10px; /* 给Logo和文字之间增加间距 */
                 }
             }
 
@@ -139,6 +136,7 @@
             @media (max-width: 768px) {
                 .image-container {
                     flex-direction: column; /* 改为竖排 */
+                    align-items: center; /* 水平居中对齐 */
                     justify-content: center; /* 垂直居中对齐 */
                     gap: 10px; /* 图片之间的间距 */
                 }
@@ -197,31 +195,12 @@
                     align-items: center; /* Center vertically */
                 }
 
-                /* .intro li 居中 */
-                .intro li {
+                /* .intro li,.contact p, .contact li居中 */
+                .intro li, .contact p, .contact li {
                     text-align: justify; /* 设置为两端对齐 */
                     margin-left: 10px; /* 去除左侧间距 */
                     margin-right: 10px; /* 去除右侧间距 */
-                    justify-content: center; /* Center horizontally */
-                    align-items: center; /* Center vertically */
-                }
-
-                /* .contact p 居中 */
-                .contact p {
-                    text-align: justify; /* 设置为两端对齐 */
-                    margin-left: 10px; /* 去除左侧间距 */
-                    margin-right: 10px; /* 去除右侧间距 */
-                    justify-content: center; /* Center horizontally */
-                    align-items: center; /* Center vertically */
-                }
-
-                /* .contact li 居中 */
-                .contact li {
-                    text-align: justify; /* 设置为两端对齐 */
-                    margin-left: 10px; /* 去除左侧间距 */
-                    margin-right: 10px; /* 去除右侧间距 */
-                    justify-content: center; /* Center horizontally */
-                    align-items: center; /* Center vertically */
+                    margin: 10px 0; /* 增加上下间距 */
                 }
             }
 
@@ -299,11 +278,20 @@
             @media (max-width: 768px) {
                 video {
                     width: 100%; /* Ensure each video takes up full width on small screens */
+                    height: auto; /* 保持视频比例 */
                 }
                 .video-container {
+                    flex-direction: column; /* 竖排排列视频 */
                     gap: 10px; /* Reduce gap between videos on smaller screens */
                 }
             }
+
+            @media (max-width: 768px) {
+                .intro, .contact, .Specialties {
+                    padding: 20px; /* 为这些部分添加内边距 */
+                    width: 100%; /* 确保这些部分在小屏幕上宽度占满 */
+                }
+            }   
 
             .contact img {
                 max-width: 45%;
