@@ -126,12 +126,15 @@
             /* 适配小屏幕的图片布局 */
             @media (max-width: 768px) {
                 .image-container {
-                    justify-content: space-around; /* 在小屏幕上，图片间隔更加紧凑 */
-                    gap: 5px;
+                    flex-direction: column; /* 改为竖排 */
+                    justify-content: center; /* 垂直居中对齐 */
+                    gap: 10px; /* 图片之间的间距 */
                 }
 
                 .image-container img {
                     max-width: 80%;  /* 在小屏幕上允许图片占满容器宽度 */
+                    width: 100%; /* 确保图片宽度适应容器 */
+                    height: auto; /* 保持图片比例 */
                 }
             }
             
