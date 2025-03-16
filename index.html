@@ -14,6 +14,13 @@
                 box-sizing: border-box;
             }
 
+            /* 全局添加盒模型 */
+            @media (max-width: 768px) {
+                .body {
+                    box-sizing: border-box;
+                }
+            }
+
             /* 🔹 让导航栏固定在页面顶部 */
             .navbar {
                 position: fixed;
@@ -72,7 +79,7 @@
             @media (max-width: 768px) {
                 .navbar {
                     flex-direction: row; /* 不使用垂直显示 */
-                    justify-content: space-between; /* Center horizontally */
+                    justify-content: flex-start;
                     height: 120px; /* 改为自适应高度 */
                     padding: 0 10px; /* 增加内边距避免过于紧凑 */
                 }
@@ -82,10 +89,13 @@
                     width: 100%; /* 保证每个链接占满一行 */
                     text-align: center; /* 使链接居中 */
                 }
+                .logo {
+                    display: flex;
+                }
                 .logo img {
-                    width: 60px; /* 设置Logo宽度 */
+                    width: 80px; /* 设置Logo宽度 */
                     height: auto; /* 保持比例 */
-                    margin-left: 0;
+                    margin-left: 10px;
                     margin-bottom: 10px; /* 给Logo和文字之间增加间距 */
                 }
 
@@ -95,9 +105,9 @@
                     font-size: 40px;
                     cursor: pointer;
                     color: white;
-                    position: nowrap;
-                    right: 20px; /* 将菜单按钮固定在右侧 */
-                    top: 15px; /* 调整按钮的垂直位置 */
+                    position: absolute;
+                    right: 15px; /* 将菜单按钮固定在右侧 */
+                    top: 40px; /* 调整按钮的垂直位置 */
                     z-index: 1001; /*确保菜单按钮在最上层*/
                 }
 
@@ -146,6 +156,8 @@
 
             .intro {
                 margin-bottom: 0;
+                padding-top: 100px;
+                padding-bottom: 100px;
             }
 
             .contact {
@@ -159,11 +171,6 @@
                 background-color: #fff;
                 color: #333;
                 width: 100%; /* Full width */
-            }
-
-            .intro{
-                padding-top: 100px;
-                padding-bottom: 100px;
             }
 
             /* 设置图片容器的布局为 Flexbox */
@@ -184,6 +191,7 @@
                     width: 100%; /* 确保 intro 在小屏幕上占满宽度 */
                 }
                 .image-container {
+                    max-width: 100%;
                     display: flex;
                     flex-wrap: wrap;  /* 允许图片换行 */
                     gap: 10px; /* 控制图片之间的间距 */
@@ -243,8 +251,22 @@
                     margin: 0; /* 去除默认的外边距 */
                     justify-content: center; /* Center horizontally */
                     align-items: center; /* Center vertically */
-                    margin-left: 10px;
+                    margin-left: 15px;
                     white-space: nowrap;
+                }
+
+                /* 修复.intro ,.contact , .contact 宽度 */
+                .intro, .contact, .contact {       
+                    width: 100vw;
+                    overflow-x: hidden;
+                    margin: 0;
+                    padding: 20px 15px;     
+                }    
+
+                /* .intro ul,.contact ul */
+                .intro ul, .contact ul {
+                    padding-left: 20px;
+                    margin-left: 0;
                 }
 
                 /* .intro li,.contact p, .contact li居中 */
@@ -256,6 +278,7 @@
                     padding: 0 15px;
                     width: 100%;
                     box-sizing: border-box; /* 确保 padding 不影响宽度 */
+                    word-break: break-word; /*允许长单词换行*/
                 }
                 .intro h2, .Specialties h2, .contact h2 {
                     font-size: 24px;
@@ -314,12 +337,20 @@
                 .grid-container {
                     grid-template-columns: 1fr; /* Stacks the items in one column */
                     padding: 40px;
+                    padding-left: 0;
+                    max-width: 100%;
+                }
+
+                .grid-item img {
+                    padding-left: 0;
+                    max-width: 100%;                    
                 }
                 .grid-item h3 {
                     font-size: 18px;
                 }
                 .grid-item p {
                     font-size: 8px;
+                    width: 100%;
                 }
             }
 
@@ -347,6 +378,7 @@
                 .video-container {
                     flex-direction: column; /* 竖排排列视频 */
                     gap: 10px; /* Reduce gap between videos on smaller screens */
+                    padding: 0 15px;
                 }
             }
 
