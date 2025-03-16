@@ -72,11 +72,9 @@
             @media (max-width: 768px) {
                 .navbar {
                     flex-direction: row; /* 不使用垂直显示 */
-                    align-items: center;
                     justify-content: space-between; /* Center horizontally */
                     height: 120px; /* 改为自适应高度 */
                     padding: 0 20px; /* 增加内边距避免过于紧凑 */
-                    z-index: 1000;
                 }
                 .navbar a {
                     display: none;  /* 隐藏导航链接 */
@@ -85,7 +83,6 @@
                     text-align: center; /* 使链接居中 */
                 }
                 .logo img {
-                    display: block;
                     width: 60px; /* 设置Logo宽度 */
                     height: auto; /* 保持比例 */
                     margin-bottom: 10px; /* 给Logo和文字之间增加间距 */
@@ -122,11 +119,8 @@
                     text-decoration: none;
                     font-size: 12px;
                     padding: 15px;
-                }
-
-                /* 显示菜单按钮 */
-                .menu-toggle {
-                    display: block; /* 显示菜单按钮 */
+                    display: block;
+                    width: 100%; /* 使每个链接占满一行 */
                 }
 
                 /* 当点击菜单按钮时显示菜单项 */
@@ -183,6 +177,10 @@
 
             /* 适配小屏幕的图片布局 */
             @media (max-width: 768px) {
+                .intro {
+                    padding: 20px;
+                    width: 100%; /* 确保 intro 在小屏幕上占满宽度 */
+                }
                 .image-container {
                     display: flex;
                     flex-wrap: wrap;  /* 允许图片换行 */
@@ -247,9 +245,11 @@
                 .intro li, .contact p, .contact li {
                     font-size: 10px;
                     text-align: justify; /* 设置为两端对齐 */
-                    margin: 10px; /* 增加上下间距 */
+                    margin-left: 10px; /* 移除右侧间距 */
+                    margin-right: 10px; /* 保证内容不会超出 */
                     padding: 0 15px;
                     width: 100%;
+                    box-sizing: border-box; /* 确保 padding 不影响宽度 */
                 }
                 .intro h2, .Specialties h2, .contact h2 {
                     font-size: 24px;
@@ -510,6 +510,7 @@
             }
         }
 
+        /* 点击链接后自动隐藏菜单 */
         document.querySelectorAll('.menu a').forEach(function(anchor) {
             anchor.addEventListener('click', function() {
                 document.getElementById("menu").style.display = "none";  // 点击后收回菜单
