@@ -49,6 +49,26 @@
                 color: yellow; /* 悬停时文字颜色变为黄色 */
             }
 
+            /* 导航菜单项 */
+            .navbar .menu {
+                display: flex;
+                gap: 20px;
+            }
+
+            .navbar .menu a {
+                color: white;
+                text-decoration: none;
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            /* 使菜单按钮在手机端显示，电脑端隐藏 */
+            .menu-toggle {
+                display: none; /* 默认隐藏 */
+                font-size: 24px;
+                cursor: pointer;
+            }
+
             /* 🔹 放大 Logo */
             .logo img {
                 width: 120px; /* 调整 Logo 大小 */
@@ -82,6 +102,33 @@
                     width: 60px; /* 设置Logo宽度 */
                     height: auto; /* 保持比例 */
                     margin-bottom: 10px; /* 给Logo和文字之间增加间距 */
+                }
+
+                /* 隐藏导航菜单项 */
+                .navbar .menu {
+                    display: none; /* 隐藏菜单项 */
+                    flex-direction: column;
+                    position: absolute;
+                    top: 60px; /* 下拉显示在导航栏下面 */
+                    left: 0;
+                    width: 100%;
+                    background-color: #000;
+                    text-align: center;
+                }
+
+                .navbar .menu a {
+                    padding: 15px;
+                    font-size: 20px;
+                }
+
+                /* 显示菜单按钮 */
+                .menu-toggle {
+                    display: block; /* 显示菜单按钮 */
+                }
+
+                /* 当点击菜单按钮时显示菜单项 */
+                .navbar.active .menu {
+                    display: flex; /* 显示菜单 */
                 }
             }
 
@@ -131,10 +178,9 @@
             /* 适配小屏幕的图片布局 */
             @media (max-width: 768px) {
                 .image-container {
-                    flex-direction: column; /* 改为竖排 */
-                    align-items: center; /* 水平居中对齐 */
-                    justify-content: center; /* 垂直居中对齐 */
-                    gap: 10px; /* 图片之间的间距 */
+                    display: flex;
+                    flex-wrap: wrap;  /* 允许图片换行 */
+                    gap: 10px; /* 控制图片之间的间距 */
                 }
 
                 .image-container img {
@@ -332,6 +378,8 @@
             <a href="#dance-classes">Dance Classes</a>
             <a href="#contact">Contact Us</a>              
         </nav>
+         <!-- 菜单按钮，只在手机端显示 -->
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- 三个横线表示菜单按钮 -->
     </header>
 
         <!-- 视频背景 -->
