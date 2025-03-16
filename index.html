@@ -65,8 +65,12 @@
             /* 使菜单按钮在手机端显示，电脑端隐藏 */
             .menu-toggle {
                 display: none; /* 默认隐藏 */
-                font-size: 24px;
+                font-size: 30px;
                 cursor: pointer;
+                color: white;
+                position: absolute;
+                right: 20px; /* 将菜单按钮固定在右侧 */
+                top: 20px; /* 调整按钮的垂直位置 */
             }
 
             /* 🔹 放大 Logo */
@@ -93,8 +97,8 @@
                     padding: 10px 0; /* 增加内边距避免过于紧凑 */
                 }
                 .navbar a {
-                    font-size: 12px; /* 调整字体大小 */
-                    padding: 10px; /* 调整padding增加点击区域 */
+                    display: none;  /* 隐藏导航链接 */
+                    padding: 15px; /* 调整padding增加点击区域 */
                     width: 100%; /* 保证每个链接占满一行 */
                     text-align: center; /* 使链接居中 */
                 }
@@ -103,7 +107,6 @@
                     height: auto; /* 保持比例 */
                     margin-bottom: 10px; /* 给Logo和文字之间增加间距 */
                 }
-
                 /* 隐藏导航菜单项 */
                 .navbar .menu {
                     display: none; /* 隐藏菜单项 */
@@ -129,6 +132,9 @@
                 /* 当点击菜单按钮时显示菜单项 */
                 .navbar.active .menu {
                     display: flex; /* 显示菜单 */
+                }
+                .navbar.active a{
+                    display: block;
                 }
             }
 
@@ -488,6 +494,13 @@
     <footer>
         <p>&copy; [ 2025 ] [ Z' Classic Dance Studio ]. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active'); // 切换菜单显示与隐藏
+        }
+    </script>
 
     </body>
     </html>
