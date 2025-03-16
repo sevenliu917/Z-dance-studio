@@ -35,6 +35,7 @@
                 text-decoration: none; /* 去掉下划线 */
                 font-size: 18px;
                 padding: 10px;
+                margin-left: 40px;
                 display: inline-block;
             }
 
@@ -49,29 +50,9 @@
                 color: yellow; /* 悬停时文字颜色变为黄色 */
             }
 
-            /* 导航菜单项 */
-            .navbar .menu {
-                display: flex;
-                gap: 20px;
-            }
-
-            .navbar .menu a {
-                color: white;
-                text-decoration: none;
-                font-size: 12px;
-                padding: 10px;
-            }
-
-            /* 使菜单按钮在手机端显示，电脑端隐藏 */
-            .menu-toggle {
-                display: none; /* 默认隐藏 */
-                font-size: 30px;
-                cursor: pointer;
-                color: white;
-                position: absolute;
-                right: 20px; /* 将菜单按钮固定在右侧 */
-                top: 20px; /* 调整按钮的垂直位置 */
-            }
+            .menu-toggle, .navbar .menu  {
+                    display: none; /* 不显示菜单按钮 */
+                }
 
             /* 🔹 放大 Logo */
             .logo img {
@@ -103,25 +84,42 @@
                     text-align: center; /* 使链接居中 */
                 }
                 .logo img {
+                    display: block;
                     width: 60px; /* 设置Logo宽度 */
                     height: auto; /* 保持比例 */
                     margin-bottom: 10px; /* 给Logo和文字之间增加间距 */
                 }
+
+                /* 使菜单按钮在手机端显示，电脑端隐藏 */
+                .menu-toggle {
+                    display: block; 
+                    font-size: 30px;
+                    cursor: pointer;
+                    color: white;
+                    position: absolute;
+                    right: 15px; /* 将菜单按钮固定在右侧 */
+                    top: 15px; /* 调整按钮的垂直位置 */
+                }
+
                 /* 隐藏导航菜单项 */
                 .navbar .menu {
                     display: none; /* 隐藏菜单项 */
-                    flex-direction: column;
                     position: absolute;
                     top: 60px; /* 下拉显示在导航栏下面 */
                     left: 0;
-                    width: 100%;
                     background-color: #000;
+                    padding: 10px;
+                    list-style-type: none;
                     text-align: center;
+                    width: 100%;
+                    z-index: 100;
                 }
 
                 .navbar .menu a {
-                    padding: 15px;
-                    font-size: 20px;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 12px;
+                    padding: 10px;
                 }
 
                 /* 显示菜单按钮 */
@@ -386,6 +384,11 @@
         </nav>
          <!-- 菜单按钮，只在手机端显示 -->
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- 三个横线表示菜单按钮 -->
+        <ul id="menu" class="menu">
+            <a href="#intro">Instructor Introduction</a>
+            <a href="#dance-classes">Dance Classes</a>
+            <a href="#contact">Contact Us</a>
+        </ul>
     </header>
 
         <!-- 视频背景 -->
@@ -497,9 +500,19 @@
 
     <script>
         function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('active'); // 切换菜单显示与隐藏
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none"; // 隐藏菜单
+            } else {
+                menu.style.display = "block"; // 显示菜单
+            }
         }
+
+        document.querySelectorAll('.menu a').forEach(function(anchor) {
+            anchor.addEventListener('click', function() {
+                document.getElementById("menu").style.display = "none";  // 点击后收回菜单
+            });
+        });
     </script>
 
     </body>
