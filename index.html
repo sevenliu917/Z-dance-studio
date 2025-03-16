@@ -138,8 +138,7 @@
                 }
 
                 .image-container img {
-                    max-width: 80%;  /* 在小屏幕上允许图片占满容器宽度 */
-                    width: 100%; /* 确保图片宽度适应容器 */
+                    width: 48%; /* 确保图片宽度适应容器 */
                     height: auto; /* 保持图片比例 */
                 }
             }
@@ -194,16 +193,14 @@
 
                 /* .intro li,.contact p, .contact li居中 */
                 .intro li, .contact p, .contact li {
+                    font-size: 10px;
                     text-align: justify; /* 设置为两端对齐 */
-                    margin-left: 10px; /* 去除左侧间距 */
-                    margin-right: 10px; /* 去除右侧间距 */
-                    margin: 10px 0; /* 增加上下间距 */
+                    margin: 10px; /* 增加上下间距 */
+                    padding: 0 15px;
+                    width: 100%;
                 }
                 .intro h2, .Specialties h2, .contact h2 {
                     font-size: 24px;
-                }
-                .intro li, .contact p, .contact li {
-                    font-size: 10px;
                 }
             }
 
@@ -326,7 +323,7 @@
 
     <body>
     <header class="navbar">
-        <a href="index2.html" class="logo">
+        <a href="index.html" class="logo">
             <img src="images/Zhao-LOGO-2.png" alt="Logo">
         </a>
         <h1>[ Z' Dance Studio ]</h1>
