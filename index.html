@@ -90,7 +90,7 @@
                     height: 50px;
                     width: auto;
                     margin-top: 0;
-                    margin-left: 10px;
+                    margin-left: 0;
                 }
                 .navbar h1{
                     display: block;
@@ -355,12 +355,18 @@
                 max-width: 100%; /* Prevents video from overflowing */
             }
             @media (max-width: 768px) {
+                .bg-video{
+                    width: 100%;
+                    height: auto;
+                }
                 .video-container {
                     display: flex;
                     flex-direction: column; /* 竖排排列视频 */
                     justify-content: center;
+                    align-items: center;
                     gap: 10px; /* Reduce gap between videos on smaller screens */
                     padding: 0 15px;
+                    width: 100%;
                 }
                 .video {
                     width: 100%; /* Ensure each video takes up full width on small screens */
