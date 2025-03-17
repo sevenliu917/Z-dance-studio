@@ -76,7 +76,7 @@
                     justify-content: space-between;
                     height: 80px;
                 }
-                .navbar a {
+                .navbar .nav {
                     display: none;  /* 隐藏导航链接 */
                 }
 
@@ -111,13 +111,14 @@
                     padding: 15px 0;
                     display: block;
                     width: 100%; /* 使每个链接占满一行 */
+                    text-align: center;
                 }
 
                 /* 当点击菜单按钮时显示菜单项 */
                 .navbar.active .menu {
                     display: block; /* 显示菜单 */
                     position: absolute;
-                    top: 80px; /* 下拉显示在导航栏下面 */
+                    top: 50px; /* 下拉显示在导航栏下面 */
                     left: 0;
                     right: 0;
                     background-color: #000;
