@@ -57,7 +57,7 @@
                 color: yellow; /* 悬停时文字颜色变为黄色 */
             }
 
-            .menu-toggle, .navbar .menu  {
+            .menu-toggle, .menu  {
                     display: none; /* 不显示菜单按钮 */
                 }
 
@@ -72,29 +72,16 @@
 
             /* 适配移动端 */
             @media (max-width: 768px) {
-                .navbar {
-                    flex-direction: row; /* 不使用垂直显示 */
-                    justify-content: space-around;
-                    height: 120px; /* 改为自适应高度 */
-                    padding: 0 5px; /* 增加内边距避免过于紧凑 */
-                }
                 .navbar a {
                     display: none;  /* 隐藏导航链接 */
-                    padding: 15px; /* 调整padding增加点击区域 */
-                    width: 100%; /* 保证每个链接占满一行 */
-                    text-align: justify; /* 使链接居中 */
                 }
-                .logo {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-shrink: 0;
-                }
+
                 .logo img {
                     width: 40px; /* 设置Logo宽度 */
                     height: auto; /* 保持比例 */
-                    margin-left: 0;
-                    margin-bottom: 5px; /* 给Logo和文字之间增加间距 */
+                    object-fit: contain;
+                    margin-top: 0;
+                    margin-left: 20px;
                 }
 
                 /* 使菜单按钮在手机端显示，电脑端隐藏 */
@@ -104,7 +91,7 @@
                     cursor: pointer;
                     color: white;
                     position: absolute;
-                    right: 20px; /* 将菜单按钮固定在右侧 */
+                    right: 40px; /* 将菜单按钮固定在右侧 */
                     top: 40px; /* 调整按钮的垂直位置 */
                     z-index: 1001; /*确保菜单按钮在最上层*/
                 }
@@ -127,7 +114,7 @@
                 .navbar.active .menu {
                     display: block; /* 显示菜单 */
                     position: absolute;
-                    top: 120px; /* 下拉显示在导航栏下面 */
+                    top: 0; /* 下拉显示在导航栏下面 */
                     left: 0;
                     right: 0;
                     background-color: #000;
