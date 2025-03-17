@@ -72,6 +72,10 @@
 
             /* 适配移动端 */
             @media (max-width: 768px) {
+                .navbar {
+                    justify-content: space-between;
+                    height: 10px;
+                }
                 .navbar a {
                     display: none;  /* 隐藏导航链接 */
                 }
@@ -114,7 +118,7 @@
                 .navbar.active .menu {
                     display: block; /* 显示菜单 */
                     position: absolute;
-                    top: 0; /* 下拉显示在导航栏下面 */
+                    top: 120px; /* 下拉显示在导航栏下面 */
                     left: 0;
                     right: 0;
                     background-color: #000;
