@@ -79,7 +79,7 @@
             @media (max-width: 768px) {
                 .navbar {
                     flex-direction: row; /* 不使用垂直显示 */
-                    justify-content: flex-start;
+                    justify-content: space-around;
                     height: 120px; /* 改为自适应高度 */
                     padding: 0 5px; /* 增加内边距避免过于紧凑 */
                 }
@@ -87,7 +87,7 @@
                     display: none;  /* 隐藏导航链接 */
                     padding: 15px; /* 调整padding增加点击区域 */
                     width: 100%; /* 保证每个链接占满一行 */
-                    text-align: center; /* 使链接居中 */
+                    text-align: justify; /* 使链接居中 */
                 }
                 .logo {
                     display: flex;
@@ -188,13 +188,10 @@
 
             /* 适配小屏幕的图片布局 */
             @media (max-width: 768px) {
-                .intro {
-                    padding: 20px;
-                    width: 100%; /* 确保 intro 在小屏幕上占满宽度 */
-                }
                 .image-container {
                     max-width: 100%;
                     display: flex;
+                    justify-content: space-between;
                     flex-wrap: wrap;  /* 允许图片换行 */
                     gap: 10px; /* 控制图片之间的间距 */
                     margin-left: 0;
@@ -259,7 +256,7 @@
                 }
 
                 /* 修复.intro ,.contact , .contact 宽度 */
-                .intro, .contact, .contact {       
+                .intro, .Specialties, .contact {       
                     width: 100vw;
                     overflow-x: hidden;
                     margin: 0;
