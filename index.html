@@ -70,6 +70,10 @@
                 margin-left: 40px;
             }
 
+            .navbar h1 {
+                display: none;
+            }
+
             /* 适配移动端 */
             @media (max-width: 768px) {
                 .navbar {
@@ -81,10 +85,15 @@
                 }
 
                 .logo img {
-                    height: 30px;
+                    height: 60px;
                     width: auto;
                     margin-top: 0;
                     margin-left: 20px;
+                }
+                .navbar h1{
+                    display: block;
+                    font-size: 18px;
+                    margin-left: 40px;
                 }
 
                 /* 使菜单按钮在手机端显示，电脑端隐藏 */
@@ -392,12 +401,13 @@
         <a href="index.html" class="logo">
             <img src="images/Zhao-LOGO-2.png" alt="Logo">
         </a>
-        <nav>
+        <nav class="nav">
             <a href="#intro">Instructor Introduction</a>
             <a href="#dance-classes">Dance Classes</a>
             <a href="#contact">Contact Us</a>              
         </nav>
          <!-- 菜单按钮，只在手机端显示 -->
+        <h1>[ Z' Dance Studio ]</h1>
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- 三个横线表示菜单按钮 -->
         <ul id="menu" class="menu">
             <a href="#intro">Instructor Introduction</a>
