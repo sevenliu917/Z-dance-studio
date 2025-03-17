@@ -548,6 +548,23 @@
                 document.querySelector('.navbar').classList.remove('active');
             });
         });
+
+        window.addEventListener('load', function () {
+            var videoElement = document.getElementById('bg-video');
+    
+        // 判断屏幕宽度
+           if (window.innerWidth <= 768) {
+        // 如果是手机端，禁用自动播放并显示控制条
+                videoElement.removeAttribute('autoplay');
+                videoElement.removeAttribute('muted');
+                videoElement.setAttribute('controls', 'true');
+            } else {
+        // 如果是桌面端，启用自动播放和静音
+                videoElement.setAttribute('autoplay', 'true');
+                videoElement.setAttribute('muted', 'true');
+                videoElement.removeAttribute('controls');
+             }
+        });
     </script>
 
     </body>
