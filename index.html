@@ -92,12 +92,13 @@
                 .logo {
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                     flex-shrink: 0;
                 }
                 .logo img {
                     width: 40px; /* 设置Logo宽度 */
                     height: auto; /* 保持比例 */
-                    margin-left: 5px;
+                    margin-left: 0;
                     margin-bottom: 5px; /* 给Logo和文字之间增加间距 */
                 }
 
@@ -116,16 +117,6 @@
                 /* 隐藏导航菜单项 */
                 .navbar .menu {
                     display: none; /* 隐藏菜单项 */
-                    position: absolute;
-                    top: 120px; /* 下拉显示在导航栏下面 */
-                    left: 0;
-                    right: 0;
-                    background-color: #000;
-                    padding: 20px 0;
-                    list-style-type: none;
-                    text-align: center;
-                    width: 100%;
-                    z-index: 100;
                 }
 
                 .navbar .menu a {
@@ -140,6 +131,16 @@
                 /* 当点击菜单按钮时显示菜单项 */
                 .navbar.active .menu {
                     display: block; /* 显示菜单 */
+                    position: absolute;
+                    top: 120px; /* 下拉显示在导航栏下面 */
+                    left: 0;
+                    right: 0;
+                    background-color: #000;
+                    padding: 20px 0;
+                    list-style-type: none;
+                    text-align: center;
+                    width: 100%;
+                    z-index: 100;
                 }
                 .navbar.active a {
                     display: block;
@@ -373,9 +374,12 @@
             @media (max-width: 768px) {
                 .bg-video{
                     width: 100%; /* Ensure each video takes up full width on small screens */
-                    height: auto; /* 保持视频比例 */
-                    top: 120px;
+                    height: 100vh; /* 保持视频比例 */
+                    top: 0;
                     object-fit: cover; /* 保持比例铺满屏幕 */
+                    position: absolute;
+                    left: 0;
+                    z-index: -1;
                 }
                 .video {
                     width: 100%; /* Ensure each video takes up full width on small screens */
