@@ -366,14 +366,17 @@
                     padding: 0 15px;
                     width: 100%;  /* 确保容器宽度为100% */
                     justify-items: center;  /* 视频水平居中 */
+                    align-items: center;
                     min-height: 200px;
                 }
 
                 .video {
-                    width: 100%; /* 确保每个视频占满100%的宽度 */
-                    height: auto; /* 保持视频比例 */
+                    height: 200px; /* 保持视频比例 */
+                    width: auto;
                     object-fit: cover; /* 保持视频比例铺满 */
                     max-width: 100%; /* 防止视频超出容器 */
+                    justify-items: center;  /* 视频水平居中 */
+                    align-items: center;
                 }
             }
 
