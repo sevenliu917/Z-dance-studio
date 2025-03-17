@@ -74,7 +74,7 @@
             @media (max-width: 768px) {
                 .navbar {
                     justify-content: space-between;
-                    height: 100px;
+                    height: 80px;
                 }
                 .navbar a {
                     display: none;  /* 隐藏导航链接 */
@@ -83,7 +83,6 @@
                 .logo img {
                     height: 30px;
                     width: auto;
-                    object-fit: contain;
                     margin-top: 0;
                     margin-left: 20px;
                 }
@@ -91,12 +90,12 @@
                 /* 使菜单按钮在手机端显示，电脑端隐藏 */
                 .menu-toggle {
                     display: block; 
-                    font-size: 35px;
+                    font-size: 40px;
                     cursor: pointer;
                     color: white;
                     position: absolute;
-                    right: 60px; /* 将菜单按钮固定在右侧 */
-                    top: 30px; /* 调整按钮的垂直位置 */
+                    right: 70px; /* 将菜单按钮固定在右侧 */
+                    top: 20px; /* 调整按钮的垂直位置 */
                     z-index: 1001; /*确保菜单按钮在最上层*/
                 }
 
@@ -118,7 +117,7 @@
                 .navbar.active .menu {
                     display: block; /* 显示菜单 */
                     position: absolute;
-                    top: 120px; /* 下拉显示在导航栏下面 */
+                    top: 80px; /* 下拉显示在导航栏下面 */
                     left: 0;
                     right: 0;
                     background-color: #000;
