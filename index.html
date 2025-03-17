@@ -372,14 +372,16 @@
                 max-width: 100%; /* Prevents video from overflowing */
             }
             @media (max-width: 768px) {
-                .video {
-                    width: 100%; /* Ensure each video takes up full width on small screens */
-                    height: auto; /* 保持视频比例 */
-                }
                 .video-container {
                     flex-direction: column; /* 竖排排列视频 */
                     gap: 10px; /* Reduce gap between videos on smaller screens */
                     padding: 0 15px;
+                }
+                .video {
+                    width: 100%; /* Ensure each video takes up full width on small screens */
+                    height: auto; /* 保持视频比例 */
+                    object-fit: cover; /* Ensures videos maintain their aspect ratio */
+                    max-width: 100%; /* Prevents video from overflowing */
                 }
             }
 
